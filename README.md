@@ -32,8 +32,11 @@
 ### Пример реализации разделения данных:
 
 ```html
-<!-- Для машины (обработка, БД) -->
+<!-- Для машины (обработка, БД) value -->
 <input type="radio" name="color" value="golden">
 
-<!-- Для человека (отображение) -->
+<!-- Для человека (отображение) data-display-name -->
 <input type="radio" data-display-name="Золотистый">
+
+<!-- Они могут работать вместе -->
+<input type="radio" value="golden" data-display-name="Золотистый">
