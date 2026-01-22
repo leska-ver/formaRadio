@@ -1,0 +1,380 @@
+:root {
+  --color-white: #fff;
+  --color-white50: rgba(255, 255, 255, 0.5); /*#fff 50%*/
+  --color-black: #000;
+  --color-tundora: #484848;
+  --color-tundoraRGBA: rgba(72, 72, 72, 0.8);/*#484848 80%*/
+  --color-RGBA: rgba(0, 0, 0, .2);/* 50%*/
+  --color-tundora4D: #4D4D4D;
+  --color-tapestry: #B95F76;
+  --color-pink: #C57F99; /* основной акцент */
+  --color-light-pink: rgba(197, 127, 153, 0.5); /* 50% прозрачности */
+  --color-turkishRose: #BF7691;
+  --color-f8: #F8EFF2;
+  --color-e8: #E8E5E5;
+  --color-f1: #F1CDD1;
+  --color-2c: #2c3e50;
+  --color-c4: #C4C4C4;
+  --color-e4: #E4EEF2;
+  --color-f2: #f2f2f2;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 26px 32px;
+  border-radius: 10px;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-turkishRose);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+
+.btn:focus {
+  opacity: .7;
+}
+
+.btn:hover, .btn:active  {
+  background-color: var(--color-tapestry);
+}
+
+.btn:hover .btn-shine {
+  left: 100%;
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+
+/* Контейнер формы */
+.product-form {
+  margin-top: 30px;
+  padding-top: 25px;
+  border-top: 1px solid #E8E5E5;
+}
+
+/* Группы полей (fieldset) */
+.productCard__group {
+  margin-bottom: 30px;
+  border: none;
+  padding: 0;
+}
+.productCard__legend {
+  font-weight: 600;
+  font-size: 18px;
+  color: #484848;
+  margin-bottom: 15px;
+  padding: 0;
+  width: 100%;
+}
+
+/* Контейнер для радио-кнопок */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.productCard__label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.productCard__label:focus-within {
+  outline: none;
+  background-color: var(--color-c4);
+  transform: translateY(-1px);
+  animation: radio-pulse 1.5s infinite;  
+}
+.productCard__label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: rgba(228, 238, 242, 0.9);
+  border-color: var(--color-c4);
+}
+.productCard__label:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition-duration: 0.1s;
+}
+/* Стили для кастомных радио-кнопок (размеры) */
+.productCard__radio-btn {
+  /* Скрываем настоящую кнопку, но оставляем доступной для фокуса и навигации */
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.custom-radio-btn {
+  display: inline-block;
+  margin: 3px 5px 18px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  width: 25px;
+  height: 29px;
+  background-color: var(--color-e4);
+  outline: none;
+  transition: all .4s ease-in-out;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.custom-radio-btn:focus-visible {
+    outline: none;
+    background-color: var(--color-c4);
+    transform: translateY(-1px);
+    animation: radio-pulse 1.5s infinite;
+}
+.custom-radio-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: rgba(228, 238, 242, 0.9);
+    border-color: var(--color-c4);
+}
+.custom-radio-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition-duration: 0.1s;
+}
+
+/* Состояние выбранной кнопки */
+.productCard__radio-btn:checked + .custom-radio-btn {
+  border-color: #BF7691;
+}
+.productCard__radio-btn:checked + .custom-radio-btn::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+/* Фокус для доступности */
+.productCard__radio-btn:focus-visible + .custom-radio-btn {
+  outline: 2px solid #BF7691;
+  outline-offset: 2px;
+}
+.radio-text {
+  font-size: 16px;
+  color: #4D4D4D;
+}
+
+/* Стили для выбора цвета */
+.color-group {
+  gap: 12px;
+}
+.color-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.productCard__color-btn {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.productCard__radio-btn:checked + .productCard__color-btn {
+  border-color: #BF7691;
+  transform: scale(1.05);
+  box-shadow: 0 0 0 2px rgba(191, 118, 145, 0.3);
+}
+.productCard__radio-btn:focus-visible + .productCard__color-btn {
+  outline: 2px solid #BF7691;
+  outline-offset: 2px;
+}
+
+/* Поле для email */
+.productCard__label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #484848;
+}
+.productCard__input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #C4C4C4;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+.productCard__input:focus {
+  border-color: #BF7691;
+  outline: none;
+}
+.productCard__hint {
+  font-size: 14px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* Кнопка отправки */
+.productCard__btn {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background: linear-gradient(135deg, #BF7691, #B95F76);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+.productCard__btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(191, 118, 145, 0.4);
+}
+.productCard__btn:active {
+  transform: translateY(0);
+}
+
+/* Сообщения формы */
+.productCard__message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 500;
+  display: none;
+}
+.productCard__message.success {
+  display: block;
+  background-color: #f0fff4;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+}
+.productCard__message.error {
+  display: block;
+  background-color: #fff5f5;
+  color: #c53030;
+  border: 1px solid #fc8181;
+}
+
+
+
+
+
+
+
+
+
+
+/* Стили для радио-кнопок в стиле katalog__radio */
+.productCard__radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 48px;
+}
+
+/* Скрываем ВНЕШНИЕ радио-инпуты для размеров */
+.productCard__input {
+    display: none;
+}
+
+/* Базовые стили ТОЛЬКО для кнопок размера */
+.productCard__label[for="size-xs"],
+.productCard__label[for="size-s"], 
+.productCard__label[for="size-m"],
+.productCard__label[for="size-l"],
+.productCard__label[for="size-xl"],
+.productCard__label[for="size-xxl"],
+.productCard__label[for="size-xxxl"] {
+    display: inline-block;
+    margin: 3px 5px 18px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    width: 25px;
+    height: 29px;
+    background-color: var(--color-e4);
+    outline: none;
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+    text-align: center;
+    line-height: 29px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-tundora4D);   
+    /* Сбрасываем flex-стили от .productCard__label */
+    align-items: normal;
+    justify-content: normal;
+    flex-direction: row;
+}
+
+/* Текст в кнопках размеров */
+.productCard__label[for="size-xs"]::before { content: "XS"; }
+.productCard__label[for="size-s"]::before { content: "S"; }
+.productCard__label[for="size-m"]::before { content: "M"; }
+.productCard__label[for="size-l"]::before { content: "L"; }
+.productCard__label[for="size-xl"]::before { content: "XL"; }
+.productCard__label[for="size-xxl"]::before { content: "XXL"; }
+.productCard__label[for="size-xxxl"]::before { content: "XXXL"; }
+
+.productCard__label[for="size-xs"]::before,
+.productCard__label[for="size-s"]::before,
+.productCard__label[for="size-m"]::before,
+.productCard__label[for="size-l"]::before,
+.productCard__label[for="size-xl"]::before,
+.productCard__label[for="size-xxl"]::before,
+.productCard__label[for="size-xxxl"]::before { 
+  display: inline-block;
+  margin: 0 0 0 41px;
+  transition: transform 0.2s ease;
+}
+
+/* ХОВЕР для размеров */
+.productCard__label[for="size-xs"]:hover,
+.productCard__label[for="size-s"]:hover,
+.productCard__label[for="size-m"]:hover,
+.productCard__label[for="size-l"]:hover,
+.productCard__label[for="size-xl"]:hover,
+.productCard__label[for="size-xxl"]:hover,
+.productCard__label[for="size-xxxl"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: rgba(228, 238, 242, 0.9);
+    border-color: var(--color-c4);
+}
+
+/* ФОКУС для размеров */
+.productCard__label[for="size-xs"]:focus-visible,
+.productCard__label[for="size-s"]:focus-visible,
+.productCard__label[for="size-m"]:focus-visible,
+.productCard__label[for="size-l"]:focus-visible,
+.productCard__label[for="size-xl"]:focus-visible,
+.productCard__label[for="size-xxl"]:focus-visible,
+.productCard__label[for="size-xxxl"]:focus-visible {
+    outline: none;
+    background-color: #C4C4C4;
+    transform: translateY(-1px);
+    animation: radio-pulse 1.5s infinite;
+}
+
+/* ВЫБРАННОЕ состояние для размеров */
+.productCard__input:checked + .productCard__label {
+    background-color: var(--color-pink);
+}
+
+
+
+
+
+
+
+

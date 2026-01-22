@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Форма заказа - MAYA</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>    
+    <form class="productCard__form" id="orderForm" action="mail.php" enctype="multipart/form-data" method="POST" aria-label="Здесь вы можете сделать выбор и отправить продавцу">
+    <!-- Поле выбора размера -->
+      <fieldset class="productCard__group">
+      <legend class="productCard__legend">Выберите размер</legend>
+        <div class="productCard__radio-group productCard__radio-group--padding48">
+          <!-- Группируем инпут+лейбл -->
+          <div class="productCard__size">
+            <input class="productCard__input" type="radio" id="size-xs" name="size" value="XS">
+            <label class="productCard__label" for="size-xs" tabindex="0" aria-label="Размер XS, радио-кнопка 1 из 7"></label>
+          </div>
+          <div class="productCard__size">
+            <input class="productCard__input" type="radio" id="size-s" name="size" value="S">
+            <label class="productCard__label" for="size-s" tabindex="0" aria-label="Размер S, радио-кнопка 2 из 7"></label>
+          </div>  
+          <div class="productCard__size">
+            <input class="productCard__input" type="radio" id="size-m" name="size" value="M">
+            <label class="productCard__label" for="size-m" tabindex="0" aria-label="Размер M, радио-кнопка 3 из 7"></label>
+          </div>
+          <div class="productCard__size">
+            <input class="productCard__input" type="radio" id="size-l" name="size" value="L">
+            <label class="productCard__label" for="size-l" tabindex="0" aria-label="Размер L, радио-кнопка 4 из 7"></label>
+          </div>
+          <div class="productCard__size">
+            <input class="productCard__input" type="radio" id="size-xl" name="size" value="XL">
+            <label class="productCard__label" for="size-xl" tabindex="0" aria-label="Размер XL, радио-кнопка 5 из 7"></label>
+          </div>
+          <div class="productCard__size">
+            <input class="productCard__input" type="radio" id="size-xxl" name="size" value="XXL">
+            <label class="productCard__label" for="size-xxl" tabindex="0" aria-label="Размер XXL, радио-кнопка 6 из 7"></label>
+          </div>
+          <div class="productCard__size">
+            <input class="productCard__input" type="radio" id="size-xxxl" name="size" value="XXXL">
+            <label class="productCard__label" for="size-xxxl" tabindex="0" aria-label="Размер XXXL, радио-кнопка 7 из 7"></label>
+          </div>   
+        </div>
+      </fieldset>
+
+      <!-- Поле выбора цвета -->
+      <fieldset class="productCard__group">
+        <legend class="productCard__legend">Выберите цвет</legend>
+        <div class="productCard__radio-group color-group">
+          <label class="productCard__label color-label" title="Черный">
+            <input class="productCard__radio-btn" type="radio" name="color" value="black">
+            <span class="productCard__color-btn" style="background-color: #FFE1E3;"></span>
+          </label>
+          <label class="productCard__label color-label" title="Серый">
+            <input class="productCard__radio-btn" type="radio" name="color" value="gray">
+            <span class="productCard__color-btn" style="background-color: #FBD05D;"></span>
+          </label>
+          <label class="productCard__label color-label" title="Зеленый">
+            <input class="productCard__radio-btn" type="radio" name="color" value="green">
+            <span class="productCard__color-btn" style="background-color: #E9D1C7;"></span>
+          </label>
+          <label class="productCard__label color-label" title="Бежевый">
+            <input class="productCard__radio-btn" type="radio" name="color" value="beige">
+            <span class="productCard__color-btn" style="background-color: #959FA7;"></span>
+          </label>
+          <label class="productCard__label color-label" title="Красный">
+            <input class="productCard__radio-btn" type="radio" name="color" value="red">
+            <span class="productCard__color-btn" style="background-color: #2F2233;"></span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Скрытое поле с email (Для админа сайта) -->
+      <input type="hidden" name="email" value="darki@yandex.ru"><!--darki@yandex.ru-->
+
+      <!-- Кнопка отправки -->
+      <button class="productCard__btn btn" type="submit">Заказать</button>
+      <div class="productCard__message" id="formMessage"></div>
+    </form>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
